@@ -1,0 +1,8 @@
+._*
+node_modules/
+prepros-6.config
+.idea/
+.vscode/
+config.codekit*
+*error*.log
+*debug*
