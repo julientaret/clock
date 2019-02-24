@@ -1,5 +1,7 @@
 body {
-  background-color: brown;
+  background-image: linear-gradient(to bottom right, brown, coral);
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,8 +10,8 @@ body {
 
 .clock {
   margin: auto;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   position: relative;
 
@@ -28,8 +30,6 @@ body {
 .hours,
 .seconds,
 .minutes {
-  width: 50%;
-  height: 5px;
   background-color: #fff;
   position: absolute;
   top: 50%;
@@ -41,6 +41,8 @@ body {
   height: 3px;
   width: 40%;
   left: 10%;
+  transition: all 0.05s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 }
 
 .hours {
@@ -51,6 +53,9 @@ body {
 
 .seconds {
   height: 1px;
+  width: 45%;
+  z-index: 500;
+  left: 5%;
 
   &.anim {
     transition: all 0.05s;
@@ -59,15 +64,32 @@ body {
 }
 
 
-svg{
+.circle-seconds{
   position:absolute;
 }
 
 .effect{
   stroke-dasharray:630;
-  stroke-dashoffset:630;
+  stroke-dashoffset:0;
 
   &.anim-circle {
     transition: all 1s linear;
+  }
+}
+
+.circle-minutes {
+  transform: rotate(-90deg);
+  z-index: 1000;
+  stroke: coral;
+
+  .dashed {
+    stroke-dasharray:1000;
+    stroke-dashoffset:0;
+  }
+
+  .black {
+    stroke-dasharray:1000;
+    stroke-dashoffset:0;
+    z-index: 1000;
   }
 }

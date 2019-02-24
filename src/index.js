@@ -18,7 +18,7 @@ function TimeNow(){
 
     //  Movement and position of minutes pointer
     const minute = date.getMinutes();
-    const minuteDeg = (((minute/60)*360) + ((seconds/60)*6) + 90);
+    const minuteDeg = (((minute/60)*360) /* + ((seconds/60)*6)*/ + 90);
     pointerMinute.style.transform = ('rotate(' + minuteDeg + 'deg)');
 
     //  Movement and position of Hours pointer
@@ -26,16 +26,14 @@ function TimeNow(){
     const hoursDeg = (((hour/12) * 360) + ((minute/60)*30) + 90);
     pointerHour.style.transform = ('rotate(' + hoursDeg + 'deg)');
 
-    // Remove and adding 'transition' class for smooth transition each minutes
+    // Remove and adding 'transition' class for 'smooth' transition each minutes
     if (seconds === 0 ){
         pointerSecond.classList.remove('anim');
         circle.classList.remove('anim-circle');
-        console.log('coucou');
     }
     else {
         pointerSecond.classList.add('anim');
         circle.classList.add('anim-circle');
-        console.log('non');
     }
 }
 
